@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6648645589153244983}
   m_Layer: 0
   m_Name: P_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,6 +117,9 @@ MonoBehaviour:
   spriteRen: {fileID: 6116235030269952359}
   moveSpeed: {x: 2, y: 1}
   jumpVel: 3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &6648645589153244983
 MonoBehaviour:
   m_ObjectHideFlags: 0

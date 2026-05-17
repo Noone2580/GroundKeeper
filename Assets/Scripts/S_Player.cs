@@ -15,6 +15,9 @@ public class S_Player : MonoBehaviour
     public Vector2 moveSpeed = new Vector2(5, 1);
     public float jumpVel = 2f;
     public bool isFacingLeft { get; protected set; } = true;
+    public bool isGrounded { get; protected set; } = true;
+
+    public LayerMask groundLayer;
 
 
     /// <summary>
@@ -26,14 +29,19 @@ public class S_Player : MonoBehaviour
         moveDir = value.Get<Vector2>();
     }
 
-    public void OnJump(InputValue value) 
+    public void OnJump(InputValue value)
     {
-        rb2d.linearVelocityY = jumpVel;
+        if (isGrounded)
+            rb2d.linearVelocityY = jumpVel;
     }
-   
+
 
     void Update()
     {
+
+        ////////////////////////////////////////////////////////////
+        /// MOVEMENT
+
         if (Mathf.Abs(moveDir.x) > 0.1f)
         {
             // moveDir X is positive then is moving right
@@ -43,8 +51,15 @@ public class S_Player : MonoBehaviour
             // Set move speed (horizontal) directly
             rb2d.linearVelocityX = moveDir.x * moveSpeed.x;
         }
-        //animator.SetFloat("moveSpeedX", Mathf.Abs(moveDir.x));
+        animator.SetFloat("moveSpeedX", Mathf.Abs(moveDir.x));
 
+        ////////////////////////////////////////////////////////////
+        /// JUMP
+
+        Vector2 rayOrigin = this.transform.position;
+        Vector2 rayDir = Vector2.down;
+        float rayRange = 1.05f;
+        isGrounded = Physics2D.Raycast(rayOrigin, rayDir, rayRange, groundLayer);
     }
 
 
