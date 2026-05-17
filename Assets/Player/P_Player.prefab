@@ -31,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7243949862135791177}
   m_Father: {fileID: 0}
@@ -46,7 +46,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: eb3f821554fe5b149acfc40bb64d9f77, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -71,7 +71,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.3, y: 0.59}
+  m_Size: {x: 0.15, y: 0.32}
   m_Direction: 0
 --- !u!50 &6762614022244405767
 Rigidbody2D:
@@ -115,7 +115,8 @@ MonoBehaviour:
   rb2d: {fileID: 6762614022244405767}
   animator: {fileID: 7114762859419966251}
   spriteRen: {fileID: 6116235030269952359}
-  moveSpeed: {x: 3, y: 1}
+  moveSpeed: {x: 2, y: 1}
+  jumpVel: 3
 --- !u!114 &6648645589153244983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +176,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.97, y: 1.97, z: 1.97}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7250192006043965114}

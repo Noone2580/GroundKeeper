@@ -13,6 +13,7 @@ public class S_Player : MonoBehaviour
     // Player
     private Vector2 moveDir;
     public Vector2 moveSpeed = new Vector2(5, 1);
+    public float jumpVel = 2f;
     public bool isFacingLeft { get; protected set; } = true;
 
 
@@ -23,6 +24,11 @@ public class S_Player : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveDir = value.Get<Vector2>();
+    }
+
+    public void OnJump(InputValue value) 
+    {
+        rb2d.linearVelocityY = jumpVel;
     }
    
 
