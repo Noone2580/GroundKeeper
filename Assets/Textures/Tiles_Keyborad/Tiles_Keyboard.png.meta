@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d7a81437dff7efd4895361b9d2f9181e
+guid: 123d01dbcc4ca6444a3065232ec7ea12
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3192223312535650383
-    second: Tiles_GrassLands_0
+      213: 7859143017262881710
+    second: Tiles_Keyboard_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,51 +113,29 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tiles_GrassLands_0
+      name: Tiles_Keyboard_0
       rect:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 0, z: 0, w: 8}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f40886b803e0d4c20800000000000000
-      internalID: 3192223312535650383
+      spriteID: eab12f64fe8411d60800000000000000
+      internalID: 7859143017262881710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_GrassLands_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6582ffa986a1c34f961326f2226bbf8
-      internalID: -1185678149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_GrassLands_2
+      name: Tiles_Keyboard_1
       rect:
         serializedVersion: 2
         x: 32
@@ -165,65 +143,65 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 3, w: 9}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7c04d489f78a814f9701a791c3fbf35
-      internalID: -1156373295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_GrassLands_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49712ebdf7823eb4a89f15d771fb13f3
-      internalID: -443067482
+      spriteID: 29e8646115f0c9349a221cf7a9ec0445
+      internalID: 1024446788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_GrassLands_4
+      name: Tiles_Keyboard_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fbf039a6f2655b43bec2d8d5f727c21
-      internalID: -1927442189
+      spriteID: f32007c52a38ab64bbdd44806de7db52
+      internalID: 1259862392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_GrassLands_5
+      name: Tiles_Keyboard_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c7c0e1906ff2d741a21d1108be49f4f
+      internalID: -140237863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Keyboard_4
       rect:
         serializedVersion: 2
         x: 32
@@ -231,153 +209,43 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eae44c609ce56744b4eee898dfd9b96
-      internalID: 1548214892
+      spriteID: 9e7d3610fab548a4bb6bf2f09dab82d3
+      internalID: 1459849004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_GrassLands_6
+      name: Tiles_Keyboard_5
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 16
+        y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 0, z: 0, w: 10}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8dbe1c1ae5a3e404898a3fc119aff555
-      internalID: 195238895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_GrassLands_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19b583da241311c48bdd5a134a7bffb4
-      internalID: 48236555
+      spriteID: 6d658340d8aef674881c1d3332a37a00
+      internalID: 2005071248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_GrassLands_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86b818b62137de24da02d32a9b96a4ca
-      internalID: 1866654218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_GrassLands_9
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 3, w: 9}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d91e23eb754c114897c8c64f5173dba
-      internalID: 1017987681
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_GrassLands_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f37cd18e405ed3e4c92261f485127568
-      internalID: -1756544589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_GrassLands_11
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15eeadbd8ff130d4dad8d5954965dce0
-      internalID: -1018489592
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_GrassLands_12
+      name: Tiles_Keyboard_6
       rect:
         serializedVersion: 2
         x: 0
@@ -386,24 +254,46 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 3, y: 9, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff4836f6a22af6d4c9bb062bec07e31f
-      internalID: 1506948491
+      spriteID: f520d02997a35db4a81d76899dab8a6d
+      internalID: 147236689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_GrassLands_13
+      name: Tiles_Keyboard_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e50c109d89ade849af4e6f02de378d6
+      internalID: 1290322937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Keyboard_8
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -414,52 +304,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c63caecf22232884da40f7adae3f924e
-      internalID: -575334139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_GrassLands_14
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 8, z: 3, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3a6c8c21f483564d9b25aab3ee5ec52
-      internalID: 1913030776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_GrassLands_15
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1668ef62e24d3e44ea2d44db68272fae
-      internalID: 567197875
+      spriteID: 7924ac19521690d43b46537a58d2fe97
+      internalID: -294069180
       vertices: []
       indices: 
       edges: []
@@ -468,7 +314,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8cebc8e8d88df1f468b850f8b5f6d35f
+    spriteID: aba4ca293d2f6f24db67725263f9afab
     internalID: 0
     vertices: []
     indices: 
@@ -476,24 +322,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Tiles_GrassLands_0: 3192223312535650383
-      Tiles_GrassLands_1: -1185678149
-      Tiles_GrassLands_10: -1756544589
-      Tiles_GrassLands_11: -1018489592
-      Tiles_GrassLands_12: 1506948491
-      Tiles_GrassLands_13: -575334139
-      Tiles_GrassLands_14: 1913030776
-      Tiles_GrassLands_15: 567197875
-      Tiles_GrassLands_2: -1156373295
-      Tiles_GrassLands_3: -443067482
-      Tiles_GrassLands_4: -1927442189
-      Tiles_GrassLands_5: 1548214892
-      Tiles_GrassLands_6: 195238895
-      Tiles_GrassLands_7: 48236555
-      Tiles_GrassLands_8: 1866654218
-      Tiles_GrassLands_9: 1017987681
+      Tiles_Keyboard_0: 7859143017262881710
+      Tiles_Keyboard_1: 1024446788
+      Tiles_Keyboard_2: 1259862392
+      Tiles_Keyboard_3: -140237863
+      Tiles_Keyboard_4: 1459849004
+      Tiles_Keyboard_5: 2005071248
+      Tiles_Keyboard_6: 147236689
+      Tiles_Keyboard_7: 1290322937
+      Tiles_Keyboard_8: -294069180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

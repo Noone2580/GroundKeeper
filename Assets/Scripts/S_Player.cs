@@ -16,6 +16,8 @@ public class S_Player : MonoBehaviour
     public Vector2 moveSpeed = new Vector2(5, 1);
     public float jumpVel = 2f;
     public bool isFacingLeft { get; protected set; } = true;
+    private bool isJumping = false;
+    private float jumpTimeRemaining;
 
 
     // Physyic / raycast
@@ -25,8 +27,11 @@ public class S_Player : MonoBehaviour
     Vector2 edgeClipTopOrigin = Vector2.zero;
     Vector2 edgeClipBotOrigin = Vector2.zero;
     Vector2 edgeClipDirection = Vector2.zero;
-    float edgeClipRayDistance = .4f;
+    public float edgeClipRayDistance = .03f;
+    public float edgeClipOffsetY = .06f;
 
+    public float maxCoyoteTime = 0.100f;
+    private float coyoteTimeRemaining;
 
     /// <summary>
     /// Triggers on Player InputAction Move and set moveDir to it's value.
@@ -39,10 +44,10 @@ public class S_Player : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        if (isGrounded)
+        // Check if can jump
+        if (isGrounded || coyoteTimeRemaining > 0)
             rb2d.linearVelocityY = jumpVel;
     }
-
 
     void Update()
     {
@@ -59,38 +64,46 @@ public class S_Player : MonoBehaviour
             // Check is player is hitting a wall
             Vector2 centre = transform.position;
             Vector2 extents = capsuleCol.bounds.extents;
-            float extentsX = isFacingLeft ? -extents.x : +extents.x;
+            extents.x = isFacingLeft ? -extents.x : +extents.x;
+            extents.y -= edgeClipOffsetY;
 
-            edgeClipTopOrigin = centre + new Vector2(extentsX, extents.y);
-            edgeClipBotOrigin = centre + new Vector2(extentsX, -extents.y);
+            edgeClipTopOrigin = centre + new Vector2(extents.x, extents.y);
+            edgeClipBotOrigin = centre + new Vector2(extents.x, -extents.y);
 
             edgeClipDirection = new Vector2(extents.x, 0).normalized;
-            edgeClipRayDistance *= edgeClipDirection.x;
+            float RayDis = edgeClipRayDistance * edgeClipDirection.x;
 
             bool hitTop = Physics2D.Raycast(edgeClipTopOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
             bool hitBot = Physics2D.Raycast(edgeClipBotOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
 
-            if(!hitBot && !hitBot) 
+            if (!hitBot && !hitTop)
             {
                 // Set move speed (horizontal) directly
                 rb2d.linearVelocityX = moveDir.x * moveSpeed.x;
             }
-            
+
             //fhuwihfwi
 
-            Debug.DrawLine(edgeClipTopOrigin, edgeClipTopOrigin + new Vector2(edgeClipRayDistance,0), hitTop ? Color.red: Color.green);
-            Debug.DrawLine(edgeClipBotOrigin, edgeClipBotOrigin + new Vector2(edgeClipRayDistance,0), hitBot ? Color.red: Color.green);
-            
+            Debug.DrawLine(edgeClipTopOrigin, edgeClipTopOrigin + new Vector2(RayDis, 0), hitTop ? Color.red : Color.green);
+            Debug.DrawLine(edgeClipBotOrigin, edgeClipBotOrigin + new Vector2(RayDis, 0), hitBot ? Color.red : Color.green);
+
         }
         animator.SetFloat("moveSpeedX", Mathf.Abs(moveDir.x));
 
         ////////////////////////////////////////////////////////////
         /// JUMP
 
+        coyoteTimeRemaining -= Time.deltaTime;
+
         Vector2 rayOrigin = this.transform.position;
         Vector2 rayDir = Vector2.down;
         float rayRange = .3f;
         isGrounded = Physics2D.Raycast(rayOrigin, rayDir, rayRange, groundLayer);
+
+        if (isGrounded) 
+        {
+            coyoteTimeRemaining = maxCoyoteTime;
+        }
 
         animator.SetBool("isGrounded", isGrounded);
     }

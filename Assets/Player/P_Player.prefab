@@ -71,7 +71,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.15, y: 0.32}
+  m_Size: {x: 0.12, y: 0.300825}
   m_Direction: 0
 --- !u!50 &6762614022244405767
 Rigidbody2D:
@@ -112,14 +112,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d72e1d10c50d114a87e5741127391a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_Player
+  capsuleCol: {fileID: 4888890878619215678}
   rb2d: {fileID: 6762614022244405767}
   animator: {fileID: 7114762859419966251}
   spriteRen: {fileID: 6116235030269952359}
-  moveSpeed: {x: 2, y: 1}
+  moveSpeed: {x: 1.2, y: 1}
   jumpVel: 3
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  edgeClipRayDistance: 0.03
+  edgeClipOffsetY: 0.06
+  maxCoyoteTime: 0.1
 --- !u!114 &6648645589153244983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,8 +183,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7250192006043965114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
