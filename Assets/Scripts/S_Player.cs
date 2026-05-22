@@ -28,7 +28,7 @@ public class S_Player : MonoBehaviour
     Vector2 edgeClipBotOrigin = Vector2.zero;
     Vector2 edgeClipDirection = Vector2.zero;
     public float edgeClipRayDistance = .03f;
-    public float edgeClipOffsetY = .06f;
+    public float edgeClipOffsetY = .02f;
 
     public float maxCoyoteTime = 0.100f;
     private float coyoteTimeRemaining;
@@ -64,19 +64,25 @@ public class S_Player : MonoBehaviour
             // Check is player is hitting a wall
             Vector2 centre = transform.position;
             Vector2 extents = capsuleCol.bounds.extents;
+            extents.x += .03f;
             extents.x = isFacingLeft ? -extents.x : +extents.x;
             extents.y -= edgeClipOffsetY;
+
+
 
             edgeClipTopOrigin = centre + new Vector2(extents.x, extents.y);
             edgeClipBotOrigin = centre + new Vector2(extents.x, -extents.y);
 
-            edgeClipDirection = new Vector2(extents.x, 0).normalized;
+            edgeClipDirection = new Vector2(0, -1).normalized;
+
+            edgeClipRayDistance = Vector2.Distance(edgeClipTopOrigin, edgeClipBotOrigin);
+
             float RayDis = edgeClipRayDistance * edgeClipDirection.x;
 
             bool hitTop = Physics2D.Raycast(edgeClipTopOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
-            bool hitBot = Physics2D.Raycast(edgeClipBotOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
+            //bool hitBot = Physics2D.Raycast(edgeClipBotOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
 
-            if (!hitBot && !hitTop)
+            if (!hitTop)
             {
                 // Set move speed (horizontal) directly
                 rb2d.linearVelocityX = moveDir.x * moveSpeed.x;
@@ -84,8 +90,8 @@ public class S_Player : MonoBehaviour
 
             //fhuwihfwi
 
-            Debug.DrawLine(edgeClipTopOrigin, edgeClipTopOrigin + new Vector2(RayDis, 0), hitTop ? Color.red : Color.green);
-            Debug.DrawLine(edgeClipBotOrigin, edgeClipBotOrigin + new Vector2(RayDis, 0), hitBot ? Color.red : Color.green);
+            Debug.DrawLine(edgeClipTopOrigin, edgeClipBotOrigin, hitTop ? Color.red : Color.green);
+            //Debug.DrawLine(edgeClipBotOrigin, edgeClipBotOrigin + new Vector2(RayDis, 0), hitBot ? Color.red : Color.green);
 
         }
         animator.SetFloat("moveSpeedX", Mathf.Abs(moveDir.x));

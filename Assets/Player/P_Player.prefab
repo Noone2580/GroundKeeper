@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7250192006043965114}
+  - component: {fileID: 2647831192958013348}
   - component: {fileID: 4888890878619215678}
   - component: {fileID: 6762614022244405767}
-  - component: {fileID: 2647831192958013348}
   - component: {fileID: 6648645589153244983}
   m_Layer: 3
   m_Name: P_Player
@@ -36,6 +36,30 @@ Transform:
   - {fileID: 7243949862135791177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2647831192958013348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3492439615902479322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d72e1d10c50d114a87e5741127391a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_Player
+  capsuleCol: {fileID: 4888890878619215678}
+  rb2d: {fileID: 6762614022244405767}
+  animator: {fileID: 7114762859419966251}
+  spriteRen: {fileID: 6116235030269952359}
+  moveSpeed: {x: 1.2, y: 1}
+  jumpVel: 3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  edgeClipRayDistance: 0.03
+  edgeClipOffsetY: 0.06
+  maxCoyoteTime: 0.1
 --- !u!70 &4888890878619215678
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -100,30 +124,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2647831192958013348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3492439615902479322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d72e1d10c50d114a87e5741127391a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::S_Player
-  capsuleCol: {fileID: 4888890878619215678}
-  rb2d: {fileID: 6762614022244405767}
-  animator: {fileID: 7114762859419966251}
-  spriteRen: {fileID: 6116235030269952359}
-  moveSpeed: {x: 1.2, y: 1}
-  jumpVel: 3
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  edgeClipRayDistance: 0.03
-  edgeClipOffsetY: 0.06
-  maxCoyoteTime: 0.1
 --- !u!114 &6648645589153244983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +165,6 @@ GameObject:
   - component: {fileID: 7243949862135791177}
   - component: {fileID: 6116235030269952359}
   - component: {fileID: 7114762859419966251}
-  - component: {fileID: 7109735073131541521}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -237,7 +236,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5283353904943521342, guid: d4e92c6e071e03a43a388c4f5b677cdf, type: 3}
+  m_Sprite: {fileID: 4641258180005195989, guid: b1867d8145846954f942cc0c9f628978, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -269,19 +268,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &7109735073131541521
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705767048606079801}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 598af33e0c6de794386f660df508ca78, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
