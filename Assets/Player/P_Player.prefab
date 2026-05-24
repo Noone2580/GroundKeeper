@@ -52,13 +52,14 @@ MonoBehaviour:
   rb2d: {fileID: 6762614022244405767}
   animator: {fileID: 7114762859419966251}
   spriteRen: {fileID: 6116235030269952359}
-  moveSpeed: {x: 1.2, y: 1}
-  jumpVel: 3
+  moveSpeed: {x: 2, y: 1}
+  maxMoveSpeed: {x: 1, y: 1}
+  jumpVel: 2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   edgeClipRayDistance: 0.03
-  edgeClipOffsetY: 0.06
+  edgeClipOffsetY: 0.02
   maxCoyoteTime: 0.1
 --- !u!70 &4888890878619215678
 CapsuleCollider2D:

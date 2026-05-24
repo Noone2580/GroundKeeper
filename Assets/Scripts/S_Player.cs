@@ -13,11 +13,12 @@ public class S_Player : MonoBehaviour
 
     // Player
     private Vector2 moveDir;
-    public Vector2 moveSpeed = new Vector2(5, 1);
+    public Vector2 moveSpeed = new Vector2(2, 1);
+    public Vector2 maxMoveSpeed = new Vector2(1,1);
     public float jumpVel = 2f;
     public bool isFacingLeft { get; protected set; } = true;
-    private bool isJumping = false;
-    private float jumpTimeRemaining;
+    //private bool isJumping = false;
+    //private float jumpTimeRemaining;
 
 
     // Physyic / raycast
@@ -44,9 +45,38 @@ public class S_Player : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
+        print("Jump");
         // Check if can jump
         if (isGrounded || coyoteTimeRemaining > 0)
             rb2d.linearVelocityY = jumpVel;
+    }
+
+    public void OnInteract(InputValue value)
+    {
+        Collider2D[] hits = new Collider2D[10];
+
+        // check for overlaping objects
+
+        capsuleCol.Overlap(new ContactFilter2D(), hits);
+
+        // If no hit then leave
+        if (hits.Length <= 0) return;
+
+        print(hits.Length);
+
+        // go throught hits array and find object with tag
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (!hits[i] || !hits[i].enabled) continue;
+
+            print(hits[i].name);
+            if (hits[i].CompareTag("Interactables"))
+            {
+                hits[i].gameObject.SetActive(false);
+                return;
+            }
+
+        }
     }
 
     void Update()
@@ -68,13 +98,10 @@ public class S_Player : MonoBehaviour
             extents.x = isFacingLeft ? -extents.x : +extents.x;
             extents.y -= edgeClipOffsetY;
 
-
-
             edgeClipTopOrigin = centre + new Vector2(extents.x, extents.y);
             edgeClipBotOrigin = centre + new Vector2(extents.x, -extents.y);
 
             edgeClipDirection = new Vector2(0, -1).normalized;
-
             edgeClipRayDistance = Vector2.Distance(edgeClipTopOrigin, edgeClipBotOrigin);
 
             float RayDis = edgeClipRayDistance * edgeClipDirection.x;
@@ -84,14 +111,14 @@ public class S_Player : MonoBehaviour
 
             if (!hitTop)
             {
-                // Set move speed (horizontal) directly
-                rb2d.linearVelocityX = moveDir.x * moveSpeed.x;
+                if (Mathf.Abs(rb2d.linearVelocityX) < maxMoveSpeed.x)
+                {
+                    rb2d.AddForceX(moveSpeed.x * moveDir.x, ForceMode2D.Force);
+
+                    // Set move speed (horizontal) directly
+                    //rb2d.linearVelocityX = moveDir.x * moveSpeed.x;
+                }
             }
-
-            //fhuwihfwi
-
-            Debug.DrawLine(edgeClipTopOrigin, edgeClipBotOrigin, hitTop ? Color.red : Color.green);
-            //Debug.DrawLine(edgeClipBotOrigin, edgeClipBotOrigin + new Vector2(RayDis, 0), hitBot ? Color.red : Color.green);
 
         }
         animator.SetFloat("moveSpeedX", Mathf.Abs(moveDir.x));
@@ -106,11 +133,13 @@ public class S_Player : MonoBehaviour
         float rayRange = .3f;
         isGrounded = Physics2D.Raycast(rayOrigin, rayDir, rayRange, groundLayer);
 
-        if (isGrounded) 
+        if (isGrounded)
         {
             coyoteTimeRemaining = maxCoyoteTime;
         }
 
+
+        print(isGrounded);
         animator.SetBool("isGrounded", isGrounded);
     }
 
@@ -127,9 +156,9 @@ public class S_Player : MonoBehaviour
             rb2d = GetComponent<Rigidbody2D>();
 
         if (animator == null)
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
 
         if (spriteRen == null)
-            spriteRen = GetComponent<SpriteRenderer>();
+            spriteRen = GetComponentInChildren<SpriteRenderer>();
     }
 }
