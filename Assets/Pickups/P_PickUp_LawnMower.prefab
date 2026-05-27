@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 352779156704598055, guid: 99ee85ba0111e254e915fb02c9c658d4, type: 3}
+      propertyPath: tool
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 352779156704598055, guid: 99ee85ba0111e254e915fb02c9c658d4, type: 3}
+      propertyPath: interactType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 983476297126745211, guid: 99ee85ba0111e254e915fb02c9c658d4, type: 3}
       propertyPath: m_Name
       value: P_PickUp_LawnMower

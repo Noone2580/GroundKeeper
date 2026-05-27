@@ -7,18 +7,24 @@ public class S_Player : MonoBehaviour
 
     // Objects
     public CapsuleCollider2D capsuleCol;
+    public CapsuleCollider2D damageCol;
     public Rigidbody2D rb2d;
     public Animator animator;
     public SpriteRenderer spriteRen;
 
     // Player
     private Vector2 moveDir;
-    public Vector2 moveSpeed = new Vector2(2, 1);
-    public Vector2 maxMoveSpeed = new Vector2(1,1);
-    public float jumpVel = 2f;
+    public Vector2 moveSpeed = new Vector2(.5f, 1);
+    public Vector2 maxMoveSpeed = new Vector2(3, 1);
+    public float jumpVel = 3.4f;
+    public float airControll = .3f;
     public bool isFacingLeft { get; protected set; } = true;
-    //private bool isJumping = false;
-    //private float jumpTimeRemaining;
+
+    // Tools
+    public bool hasShovel { get; protected set; } = false;
+    public float shovelDamage = 3;
+    public bool hasAxe { get; protected set; } = false;
+    public float axeDamage = 5;
 
 
     // Physyic / raycast
@@ -45,10 +51,23 @@ public class S_Player : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        print("Jump");
         // Check if can jump
         if (isGrounded || coyoteTimeRemaining > 0)
             rb2d.linearVelocityY = jumpVel;
+    }
+
+    public void OnShovel(InputValue value)
+    {
+        if (!hasShovel) return;
+
+        Damage(S_Enums.Etools.Shovel);
+    }
+
+    public void OnAxe(InputValue value)
+    {
+        if (!hasAxe) return;
+
+        Damage(S_Enums.Etools.Axe);
     }
 
     public void OnInteract(InputValue value)
@@ -62,18 +81,51 @@ public class S_Player : MonoBehaviour
         // If no hit then leave
         if (hits.Length <= 0) return;
 
-        print(hits.Length);
+        // go throught hits array and find object with tag
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (!hits[i] || !hits[i].enabled) continue;
+
+            if (hits[i].CompareTag("Interactables"))
+            {
+                hits[i].gameObject.SendMessage("Interact", gameObject);
+                return;
+            }
+
+        }
+    }
+
+    public void pickupTool(S_Enums.Etools tool)
+    {
+        //index = Mathf.Clamp(index, 0, 1);
+
+        switch (tool)
+        {
+            case S_Enums.Etools.Shovel:
+                hasShovel = true; break;
+            case S_Enums.Etools.Axe:
+                hasAxe = true; break;
+        }
+    }
+
+    public void Damage(S_Enums.Etools damage)
+    {
+        Collider2D[] hits = new Collider2D[10];
+
+        // check for overlaping objects
+        damageCol.Overlap(new ContactFilter2D(), hits);
+
+        // If no hit then leave
+        if (hits.Length <= 0) return;
 
         // go throught hits array and find object with tag
         for (int i = 0; i < hits.Length; i++)
         {
             if (!hits[i] || !hits[i].enabled) continue;
 
-            print(hits[i].name);
-            if (hits[i].CompareTag("Interactables"))
+            if (hits[i].CompareTag("Objects"))
             {
-                hits[i].gameObject.SetActive(false);
-                return;
+                hits[i].gameObject.SendMessage("Damage", damage);
             }
 
         }
@@ -106,21 +158,40 @@ public class S_Player : MonoBehaviour
 
             float RayDis = edgeClipRayDistance * edgeClipDirection.x;
 
-            bool hitTop = Physics2D.Raycast(edgeClipTopOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
-            //bool hitBot = Physics2D.Raycast(edgeClipBotOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
+            bool hitWall = Physics2D.Raycast(edgeClipTopOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
 
-            if (!hitTop)
+            if (!hitWall)
             {
-                if (Mathf.Abs(rb2d.linearVelocityX) < maxMoveSpeed.x)
-                {
-                    rb2d.AddForceX(moveSpeed.x * moveDir.x, ForceMode2D.Force);
+                float VelX = rb2d.linearVelocityX;
 
-                    // Set move speed (horizontal) directly
-                    //rb2d.linearVelocityX = moveDir.x * moveSpeed.x;
+                // Change moveSpeed X if in the air
+                float newSpeed = isGrounded ? moveSpeed.x : moveSpeed.x * airControll;
+
+
+                if (Mathf.Abs(VelX) < maxMoveSpeed.x || (VelX > 0 && moveDir.x < 0) || (VelX < 0 && moveDir.x > 0))
+                {
+                    float force = 1;
+                    // if player is moving and want to go in opasite direction
+                    if ((VelX > 0 && moveDir.x < 0) || (VelX < 0 && moveDir.x > 0))
+                    {
+                        force = .2f;
+                    }
+                    else
+                    {
+                        force = Mathf.Clamp(Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed.x, 0, 1);
+                        force = 1 - force;
+                    }
+
+                    newSpeed *= force;
+
+                    // Move by apliding force
+                    rb2d.AddForceX(newSpeed * moveDir.x, ForceMode2D.Force);
                 }
+
             }
 
         }
+
         animator.SetFloat("moveSpeedX", Mathf.Abs(moveDir.x));
 
         ////////////////////////////////////////////////////////////
@@ -139,7 +210,6 @@ public class S_Player : MonoBehaviour
         }
 
 
-        print(isGrounded);
         animator.SetBool("isGrounded", isGrounded);
     }
 
@@ -160,5 +230,8 @@ public class S_Player : MonoBehaviour
 
         if (spriteRen == null)
             spriteRen = GetComponentInChildren<SpriteRenderer>();
+
+        if (damageCol == null)
+            damageCol = GetComponentInChildren<CapsuleCollider2D>();
     }
 }

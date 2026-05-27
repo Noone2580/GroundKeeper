@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7792317573081587140}
+  - component: {fileID: 352779156704598055}
   - component: {fileID: 227575252558989671}
   - component: {fileID: 9120454408929439143}
   m_Layer: 0
@@ -33,6 +34,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &352779156704598055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983476297126745211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d5b83938ad2a342811f20feaf4250c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_Pickup
+  interactType: 0
 --- !u!212 &227575252558989671
 SpriteRenderer:
   serializedVersion: 2

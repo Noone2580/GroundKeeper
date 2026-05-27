@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4886896053286626771, guid: 5f1703a4951738e418537bdd7a5e3ec5, type: 3}
+      propertyPath: hp
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4886896053286626771, guid: 5f1703a4951738e418537bdd7a5e3ec5, type: 3}
+      propertyPath: toolNeeded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 813930644995208119, guid: 5f1703a4951738e418537bdd7a5e3ec5, type: 3}
       propertyPath: m_Size.x
       value: 0.16
@@ -131,15 +139,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0006611161}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.14}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.16, y: 0.14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.16, y: 0.14}
+  m_Size: {x: 0.16, y: 0.16181701}
   m_EdgeRadius: 0
