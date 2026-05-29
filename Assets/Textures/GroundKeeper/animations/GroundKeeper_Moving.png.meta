@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: f354334f4b0e3ae4b888e96cac0ce91d
+guid: 4fdd874b0a382bb49a396808c5faca60
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7190134561736843839
-    second: Tiles_Objects_0
+      213: -6771635511452581185
+    second: GroundKeeper_Moving_0
+  - first:
+      213: 7760842218738304286
+    second: GroundKeeper_Moving_1
+  - first:
+      213: -6565028501841985713
+    second: GroundKeeper_Moving_2
+  - first:
+      213: 7097403168193788679
+    second: GroundKeeper_Moving_3
+  - first:
+      213: -111443337067487792
+    second: GroundKeeper_Moving_4
+  - first:
+      213: -7172958263024160962
+    second: GroundKeeper_Moving_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tiles_Objects_0
+      name: GroundKeeper_Moving_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
+        x: 23
+        y: 81
+        width: 18
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,140 +143,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cd9a6806b2873c90800000000000000
-      internalID: -7190134561736843839
+      spriteID: fb2c27741615602a0800000000000000
+      internalID: -6771635511452581185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Objects_1
+      name: GroundKeeper_Moving_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 90
+        y: 81
+        width: 14
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5e16f88a6ed573e4bb287fca0b9c467c
-      internalID: -798077680
+      spriteID: e1540c511ec04bb60800000000000000
+      internalID: 7760842218738304286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Objects_2
+      name: GroundKeeper_Moving_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
+        x: 153
+        y: 81
+        width: 14
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6169615dbd3275a4b8145373599e4312
-      internalID: 331242775
+      spriteID: f4fb46f4c5554e4a0800000000000000
+      internalID: -6565028501841985713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Objects_3
+      name: GroundKeeper_Moving_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 24
+        y: 17
         width: 16
-        height: 16
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3dc1980f1c253264a8d16cc46aed3061
-      internalID: -1092363326
+      spriteID: 70b3cebe39a0f7260800000000000000
+      internalID: 7097403168193788679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Objects_4
+      name: GroundKeeper_Moving_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
+        x: 90
+        y: 17
+        width: 14
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 45d7313ff224bbd4ab359c4e9b8302e9
-      internalID: 333500520
+      spriteID: 0dd128910e2147ef0800000000000000
+      internalID: -111443337067487792
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Objects_5
+      name: GroundKeeper_Moving_5
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
+        x: 153
+        y: 17
+        width: 15
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 116bace6fdb12cc469dcfba3d4bfa851
-      internalID: -162262831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Objects_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89fb2c8ecd533634bbafdb3d6c35aa37
-      internalID: 1958587557
+      spriteID: e3fedb7b678847c90800000000000000
+      internalID: -7172958263024160962
       vertices: []
       indices: 
       edges: []
@@ -270,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f6ec37a2d44b18941aee0768e0949bd7
+    spriteID: 9bc6322819ee11549b03283e14f61ca2
     internalID: 0
     vertices: []
     indices: 
@@ -280,13 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tiles_Objects_0: -7190134561736843839
-      Tiles_Objects_1: -798077680
-      Tiles_Objects_2: 331242775
-      Tiles_Objects_3: -1092363326
-      Tiles_Objects_4: 333500520
-      Tiles_Objects_5: -162262831
-      Tiles_Objects_6: 1958587557
+      GroundKeeper_Moving_0: -6771635511452581185
+      GroundKeeper_Moving_1: 7760842218738304286
+      GroundKeeper_Moving_2: -6565028501841985713
+      GroundKeeper_Moving_3: 7097403168193788679
+      GroundKeeper_Moving_4: -111443337067487792
+      GroundKeeper_Moving_5: -7172958263024160962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

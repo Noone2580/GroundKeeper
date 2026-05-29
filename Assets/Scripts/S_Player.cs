@@ -192,7 +192,7 @@ public class S_Player : MonoBehaviour
 
         }
 
-        animator.SetFloat("moveSpeedX", Mathf.Abs(moveDir.x));
+        animator.SetFloat("moveSpeedX", Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed.x);
 
         ////////////////////////////////////////////////////////////
         /// JUMP

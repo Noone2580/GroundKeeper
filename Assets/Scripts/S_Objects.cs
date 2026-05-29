@@ -19,7 +19,10 @@ public class S_Objects : S_Interactable
 
     public override bool Damage(S_Enums.Etools tool)
     {
-        if (tool != toolNeeded) return false;
+
+        if (toolNeeded != S_Enums.Etools.None)
+            if (tool != S_Enums.Etools.LawnMower)
+                if (tool != toolNeeded) return false;
 
         hp--;
 

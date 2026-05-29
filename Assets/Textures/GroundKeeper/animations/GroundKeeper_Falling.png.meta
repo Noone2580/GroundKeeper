@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: f354334f4b0e3ae4b888e96cac0ce91d
+guid: d7948cfea00178d45ba60a3307165fd8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7190134561736843839
-    second: Tiles_Objects_0
+      213: -1799192317880631950
+    second: GroundKeeper_Falling_0
+  - first:
+      213: -6560875524022208910
+    second: GroundKeeper_Falling_1
+  - first:
+      213: -4425184415590730210
+    second: GroundKeeper_Falling_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tiles_Objects_0
+      name: GroundKeeper_Falling_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 22
         y: 16
-        width: 16
-        height: 16
+        width: 21
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,140 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cd9a6806b2873c90800000000000000
-      internalID: -7190134561736843839
+      spriteID: 27dfc129e1cf707e0800000000000000
+      internalID: -1799192317880631950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Objects_1
+      name: GroundKeeper_Falling_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e16f88a6ed573e4bb287fca0b9c467c
-      internalID: -798077680
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Objects_2
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6169615dbd3275a4b8145373599e4312
-      internalID: 331242775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Objects_3
-      rect:
-        serializedVersion: 2
-        x: 16
+        x: 86
         y: 16
-        width: 16
-        height: 16
+        width: 21
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3dc1980f1c253264a8d16cc46aed3061
-      internalID: -1092363326
+      spriteID: 276f91fc87613f4a0800000000000000
+      internalID: -6560875524022208910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_Objects_4
+      name: GroundKeeper_Falling_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 150
         y: 16
-        width: 16
-        height: 16
+        width: 21
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 45d7313ff224bbd4ab359c4e9b8302e9
-      internalID: 333500520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Objects_5
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 116bace6fdb12cc469dcfba3d4bfa851
-      internalID: -162262831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_Objects_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89fb2c8ecd533634bbafdb3d6c35aa37
-      internalID: 1958587557
+      spriteID: e16be1b38369692c0800000000000000
+      internalID: -4425184415590730210
       vertices: []
       indices: 
       edges: []
@@ -270,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f6ec37a2d44b18941aee0768e0949bd7
+    spriteID: f0ebf9de874bcb04f988e4d7cfb770ef
     internalID: 0
     vertices: []
     indices: 
@@ -280,13 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tiles_Objects_0: -7190134561736843839
-      Tiles_Objects_1: -798077680
-      Tiles_Objects_2: 331242775
-      Tiles_Objects_3: -1092363326
-      Tiles_Objects_4: 333500520
-      Tiles_Objects_5: -162262831
-      Tiles_Objects_6: 1958587557
+      GroundKeeper_Falling_0: -1799192317880631950
+      GroundKeeper_Falling_1: -6560875524022208910
+      GroundKeeper_Falling_2: -4425184415590730210
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

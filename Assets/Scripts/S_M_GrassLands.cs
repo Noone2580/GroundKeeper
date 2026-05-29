@@ -4,18 +4,40 @@ using UnityEngine.Rendering.Universal;
 public class S_M_GrassLands : MonoBehaviour
 {
 
-    public Light2D Sun;
-    public Collider2D Collider;
+    public Light2D sun;
+    public Collider2D StartSunBox;
+    public Collider2D EndSunBox;
+    public Camera playerCamera;
+    public Transform player;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    float sunTarget = 1;
+    bool sunChanging = false;
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        if (sun == null) return;
+        if (sunChanging)
+        {
+            sun.intensity = Mathf.Lerp(sun.intensity, sunTarget, 2 * Time.deltaTime);
+            if (sun.intensity == sunTarget) sunChanging = false;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("SUN!");
+
+        if (transform.position.x < player.position.x)
+        {
+            sunTarget = 1;
+            sunChanging = true;
+        }
+
+        else if (transform.position.x > player.position.x)
+        {
+            sunTarget = 0;
+            sunChanging = true;
+        }
     }
 }
