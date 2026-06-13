@@ -37,7 +37,15 @@ public class S_Pickup : S_Interactable
                 break;
 
             case S_Enums.Etools.LawnMower:
-                return false;
+
+                if (interactingObject.GetComponent<S_Player>() == null) return false;
+
+                if (!interactingObject.GetComponent<S_Player>().hasLawnMower)
+                {
+                    interactingObject.GetComponent<S_Player>().pickupTool(S_Enums.Etools.LawnMower);
+                }
+                else return false;
+                break;
         }
 
 

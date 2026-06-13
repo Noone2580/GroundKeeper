@@ -20,8 +20,10 @@ public class S_Player : MonoBehaviour
 
     // Player
     private Vector2 moveDir;
-    private Vector2 moveSpeed = new Vector2(50f, 1);
-    private Vector2 maxMoveSpeed = new Vector2(4, 1);
+    private float oldSpeed;
+    private float moveSpeed = 50f;
+    private float maxMoveSpeed = 4f;
+    private float mowSpeed = 7f;
     public float jumpVel = 3.4f;
     public float airControll = .3f;
     public bool isFacingLeft { get; protected set; } = true;
@@ -31,6 +33,7 @@ public class S_Player : MonoBehaviour
     public float shovelDamage = 3;
     public bool hasAxe = false;
     public float axeDamage = 5;
+    public bool hasLawnMower = false;
 
 
     // Physyic / raycast
@@ -45,6 +48,12 @@ public class S_Player : MonoBehaviour
 
     public float maxCoyoteTime = 0.100f;
     private float coyoteTimeRemaining;
+
+    private void Start()
+    {
+        oldSpeed = maxMoveSpeed;
+
+    }
 
     /// <summary>
     /// Triggers on Player InputAction Move and set moveDir to it's value.
@@ -78,6 +87,10 @@ public class S_Player : MonoBehaviour
 
     public void OnInteract(InputValue value)
     {
+        if (hasLawnMower) { driveLawnMower(false); return; }
+
+        print("inter");
+
         Collider2D[] hits = new Collider2D[10];
 
         // check for overlaping objects
@@ -111,7 +124,27 @@ public class S_Player : MonoBehaviour
                 hasShovel = true; break;
             case S_Enums.Etools.Axe:
                 hasAxe = true; break;
+            case S_Enums.Etools.LawnMower:
+                driveLawnMower(true); break;
         }
+    }
+
+    bool driveLawnMower(bool drive)
+    {
+        if (hasLawnMower && drive)
+            return false;
+        else if (!drive)
+        {
+            //damageCol.size = new Vector2(0.25f, damageCol.size.y);
+            hasLawnMower = false;
+            maxMoveSpeed = oldSpeed;
+            return false;
+        }
+
+        //damageCol.size = new Vector2( 0.50f, damageCol.size.y);
+        hasLawnMower = true;
+        maxMoveSpeed = float.PositiveInfinity;
+        return true;
     }
 
     public void Damage(S_Enums.Etools damage)
@@ -137,11 +170,15 @@ public class S_Player : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (hasLawnMower)
+            Damage(S_Enums.Etools.LawnMower);
+    }
 
     void FixedUpdate()
     {
         move();
-
 
         ////////////////////////////////////////////////////////////
         /// JUMP
@@ -222,10 +259,10 @@ public class S_Player : MonoBehaviour
                 float VelX = rb2d.linearVelocityX;
 
                 // Change moveSpeed X if in the air
-                float newSpeed = isGrounded ? moveSpeed.x : moveSpeed.x * airControll;
+                float newSpeed = isGrounded ? moveSpeed : moveSpeed * airControll;
 
 
-                if (Mathf.Abs(VelX) < maxMoveSpeed.x || (VelX > 0 && moveDir.x < 0) || (VelX < 0 && moveDir.x > 0))
+                if (Mathf.Abs(VelX) < maxMoveSpeed || (VelX > 0 && moveDir.x < 0) || (VelX < 0 && moveDir.x > 0))
                 {
                     float force = 1;
                     // if player is moving and want to go in opasite direction
@@ -235,7 +272,7 @@ public class S_Player : MonoBehaviour
                     }
                     else
                     {
-                        force = Mathf.Clamp(Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed.x, 0, 1);
+                        force = Mathf.Clamp(Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed, 0, 1);
                         force = 1 - force;
                     }
 
@@ -250,7 +287,7 @@ public class S_Player : MonoBehaviour
 
         }
 
-        float percent = Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed.x;
+        float percent = Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed;
 
         animator.SetFloat("moveSpeedX", percent);
     }
@@ -260,6 +297,8 @@ public class S_Player : MonoBehaviour
     /// </summary>
     private void OnValidate()
     {
+        oldSpeed = maxMoveSpeed;
+
         if (capsuleCol == null)
             capsuleCol = GetComponent<CapsuleCollider2D>();
 
