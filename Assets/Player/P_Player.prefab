@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7243949862135791177}
+  - {fileID: 6072356594329664819}
   - {fileID: 7282714289707059394}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54,6 +55,8 @@ MonoBehaviour:
   rb2d: {fileID: 6762614022244405767}
   animator: {fileID: 7114762859419966251}
   spriteRen: {fileID: 6116235030269952359}
+  mowerRen: {fileID: 300576318139430870}
+  mowerPre: {fileID: 3631802691848540092, guid: 1a34784522fb6584780714ccc9f9d09a, type: 3}
   jumpVel: 3.2
   airControll: 0.4
   hasShovel: 0
@@ -173,7 +176,7 @@ GameObject:
   - component: {fileID: 4770313282303532049}
   m_Layer: 0
   m_Name: DamageCol
-  m_TagString: Untagged
+  m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,8 +263,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6072356594329664819}
+  m_Children: []
   m_Father: {fileID: 7250192006043965114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6116235030269952359
@@ -375,7 +377,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7243949862135791177}
+  m_Father: {fileID: 7250192006043965114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &300576318139430870
 SpriteRenderer:

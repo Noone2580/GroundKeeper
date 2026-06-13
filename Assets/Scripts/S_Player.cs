@@ -17,6 +17,8 @@ public class S_Player : MonoBehaviour
     public Rigidbody2D rb2d;
     public Animator animator;
     public SpriteRenderer spriteRen;
+    public SpriteRenderer mowerRen;
+    public GameObject mowerPre;
 
     // Player
     private Vector2 moveDir;
@@ -52,7 +54,7 @@ public class S_Player : MonoBehaviour
     private void Start()
     {
         oldSpeed = maxMoveSpeed;
-
+        mowerRen.enabled = false;
     }
 
     /// <summary>
@@ -89,7 +91,6 @@ public class S_Player : MonoBehaviour
     {
         if (hasLawnMower) { driveLawnMower(false); return; }
 
-        print("inter");
 
         Collider2D[] hits = new Collider2D[10];
 
@@ -135,13 +136,15 @@ public class S_Player : MonoBehaviour
             return false;
         else if (!drive)
         {
-            //damageCol.size = new Vector2(0.25f, damageCol.size.y);
+            mowerRen.enabled = false;
             hasLawnMower = false;
             maxMoveSpeed = oldSpeed;
+
+            Instantiate(mowerPre, transform.position, transform.rotation);
             return false;
         }
 
-        //damageCol.size = new Vector2( 0.50f, damageCol.size.y);
+        mowerRen.enabled = true;
         hasLawnMower = true;
         maxMoveSpeed = float.PositiveInfinity;
         return true;
@@ -173,7 +176,20 @@ public class S_Player : MonoBehaviour
     private void Update()
     {
         if (hasLawnMower)
+        {
             Damage(S_Enums.Etools.LawnMower);
+
+            mowerRen.flipX = isFacingLeft;
+
+
+            if (isFacingLeft)
+            {
+                mowerRen.gameObject.transform.position = new Vector3(transform.position.x + -0.142f, mowerRen.gameObject.transform.position.y, mowerRen.gameObject.transform.position.z);
+            }
+            else
+                mowerRen.gameObject.transform.position = new Vector3(transform.position.x + 0.142f, mowerRen.gameObject.transform.position.y, mowerRen.gameObject.transform.position.z);
+
+        }
     }
 
     void FixedUpdate()
@@ -287,7 +303,7 @@ public class S_Player : MonoBehaviour
 
         }
 
-        float percent = Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed;
+        float percent = hasLawnMower ? 1 : Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed;
 
         animator.SetFloat("moveSpeedX", percent);
     }
@@ -313,5 +329,7 @@ public class S_Player : MonoBehaviour
 
         if (damageCol == null)
             damageCol = GetComponentInChildren<CapsuleCollider2D>();
+        if (mowerRen == null)
+            mowerRen = GetComponentInChildren<SpriteRenderer>();
     }
 }
