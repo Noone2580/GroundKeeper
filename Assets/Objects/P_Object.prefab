@@ -137,6 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_Objects
   toolNeeded: 0
-  hp: 2
+  hp: 1
   damageJiggle: 0.03
   spriteAncer: {fileID: 4813788593663953990}

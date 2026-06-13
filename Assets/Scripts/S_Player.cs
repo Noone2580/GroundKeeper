@@ -1,3 +1,9 @@
+/// Made By
+/// Name: Anaharishon
+/// ID: 000872286
+/// DES: Player script for movement, interacting and damageing
+
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,16 +20,16 @@ public class S_Player : MonoBehaviour
 
     // Player
     private Vector2 moveDir;
-    public Vector2 moveSpeed = new Vector2(.5f, 1);
-    public Vector2 maxMoveSpeed = new Vector2(3, 1);
+    private Vector2 moveSpeed = new Vector2(50f, 1);
+    private Vector2 maxMoveSpeed = new Vector2(4, 1);
     public float jumpVel = 3.4f;
     public float airControll = .3f;
     public bool isFacingLeft { get; protected set; } = true;
 
     // Tools
-    public bool hasShovel { get; protected set; } = false;
+    public bool hasShovel = false;
     public float shovelDamage = 3;
-    public bool hasAxe { get; protected set; } = false;
+    public bool hasAxe = false;
     public float axeDamage = 5;
 
 
@@ -131,9 +137,34 @@ public class S_Player : MonoBehaviour
         }
     }
 
-    void Update()
-    {
 
+    void FixedUpdate()
+    {
+        move();
+
+
+        ////////////////////////////////////////////////////////////
+        /// JUMP
+
+        coyoteTimeRemaining -= Time.deltaTime;
+
+        Vector2 rayOrigin = this.transform.position;
+        Vector2 rayDir = Vector2.down;
+        float rayRange = .3f;
+        isGrounded = Physics2D.Raycast(rayOrigin, rayDir, rayRange, groundLayer);
+
+        if (isGrounded)
+        {
+            coyoteTimeRemaining = maxCoyoteTime;
+        }
+
+
+        animator.SetBool("isGrounded", isGrounded);
+    }
+
+
+    void move()
+    {
         ////////////////////////////////////////////////////////////
         /// MOVEMENT
 
@@ -158,7 +189,33 @@ public class S_Player : MonoBehaviour
 
             float RayDis = edgeClipRayDistance * edgeClipDirection.x;
 
-            bool hitWall = Physics2D.Raycast(edgeClipTopOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
+            // stores Raycast Hit as hit
+            RaycastHit2D hit = Physics2D.Raycast(edgeClipTopOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
+
+            bool hitWall = false;
+
+
+            if (hit)
+            {
+                float wallAngle = Mathf.Atan2(hit.normal.x, hit.normal.y) * -1; // turn hit normal into a angle
+                float wallRotation = Mathf.Rad2Deg * wallAngle; // turn wallAnagle into a Dagre
+
+                if (Mathf.Abs(wallRotation) < 60 && Mathf.Abs(wallRotation) > 25) // chack if the rotation is in range of walkable slop
+                {
+                    hitWall = false;
+                    moveDir.y = 2;
+                }
+                else
+                {
+                    moveDir.y = 0;
+                    hitWall = true;
+                }
+            }
+            else moveDir.y = 0;
+
+            //bool hitWall = Physics2D.Raycast(edgeClipTopOrigin, edgeClipDirection, edgeClipRayDistance, groundLayer);
+
+
 
             if (!hitWall)
             {
@@ -185,34 +242,18 @@ public class S_Player : MonoBehaviour
                     newSpeed *= force;
 
                     // Move by apliding force
-                    rb2d.AddForceX(newSpeed * moveDir.x, ForceMode2D.Force);
+                    rb2d.AddForceX(newSpeed * moveDir.x * Time.deltaTime, ForceMode2D.Force);
+                    rb2d.AddForceY(newSpeed * moveDir.y * Time.deltaTime, ForceMode2D.Force);
                 }
 
             }
 
         }
 
-        animator.SetFloat("moveSpeedX", Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed.x);
+        float percent = Mathf.Abs(rb2d.linearVelocityX) / maxMoveSpeed.x;
 
-        ////////////////////////////////////////////////////////////
-        /// JUMP
-
-        coyoteTimeRemaining -= Time.deltaTime;
-
-        Vector2 rayOrigin = this.transform.position;
-        Vector2 rayDir = Vector2.down;
-        float rayRange = .3f;
-        isGrounded = Physics2D.Raycast(rayOrigin, rayDir, rayRange, groundLayer);
-
-        if (isGrounded)
-        {
-            coyoteTimeRemaining = maxCoyoteTime;
-        }
-
-
-        animator.SetBool("isGrounded", isGrounded);
+        animator.SetFloat("moveSpeedX", percent);
     }
-
 
     /// <summary>
     /// Runs eveytime unity changes defalt vars

@@ -1,3 +1,9 @@
+/// Made By
+/// Name: Anaharishon
+/// ID: 000872286
+/// DES: Base class for damagable objects
+
+
 using System.Collections;
 using UnityEngine;
 

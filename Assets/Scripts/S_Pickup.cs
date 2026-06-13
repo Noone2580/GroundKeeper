@@ -1,3 +1,8 @@
+/// Made By
+/// Name: Anaharishon
+/// ID: 000872286
+/// DES: A Pickup item
+
 using Unity.VisualScripting;
 using UnityEngine;
 

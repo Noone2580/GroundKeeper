@@ -1,3 +1,8 @@
+/// Made By
+/// Name: Anaharishon
+/// ID: 000872286
+/// DES: For player interactions with objects
+
 using UnityEngine;
 
 public class S_Interactable : MonoBehaviour

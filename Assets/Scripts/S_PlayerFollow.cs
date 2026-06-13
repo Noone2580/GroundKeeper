@@ -1,3 +1,8 @@
+/// Made By
+/// Name: Anaharishon
+/// ID: 000872286
+/// DES: Script that follows the Player around 
+
 using UnityEngine;
 
 public class S_PlayerFollow : MonoBehaviour

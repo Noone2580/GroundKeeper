@@ -10,11 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4886896053286626771, guid: 5f1703a4951738e418537bdd7a5e3ec5, type: 3}
       propertyPath: hp
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4886896053286626771, guid: 5f1703a4951738e418537bdd7a5e3ec5, type: 3}
       propertyPath: toolNeeded
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4886896053286626771, guid: 5f1703a4951738e418537bdd7a5e3ec5, type: 3}
+      propertyPath: damageJiggle
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 813930644995208119, guid: 5f1703a4951738e418537bdd7a5e3ec5, type: 3}
       propertyPath: m_FlipX
